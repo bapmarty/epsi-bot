@@ -1,4 +1,7 @@
+const { MessageEmbed } = require("discord.js");
+
 const MessageWrapper = require("../common/messageWrapper");
+
 require('dotenv').config();
 
 module.exports = class DeleteMessage extends MessageWrapper {
@@ -14,20 +17,35 @@ module.exports = class DeleteMessage extends MessageWrapper {
   }
 
   static deleteLastMessage(message, client, conf) {
-    const number = message.content.split(" ")[1];
+    let number = message.content.split(" ")[1];
 
-    if (message.guild.roles.cache.find(r => r.id === process.env.DISCORD_OWNER_ROLE)) {
+    if (number === undefined) {
+      number = 1;
+    }
+
+    if (message.member.roles.cache.some(r => r.id === process.env.DISCORD_OWNER_ROLE)) {
       if (number <= 100) {
+        message.delete();
         const clear = async () => {
           const messages = await message.channel.messages.fetch({ limit: number });
           message.channel.bulkDelete(messages);
         }
         clear();
       } else {
-        console.log("Number is too big");
+        message.delete();
+        const em = new MessageEmbed()
+          .setColor(0x7C147B)
+          .setDescription(conf.deleteCommand.tooBigNumber)
+
+        message.channel.send({embeds: [em]});
       }
     } else {
-      console.log("You cannot use this command !");
+      message.delete();
+      const em = new MessageEmbed()
+        .setColor(0x7C147B)
+        .setDescription(conf.deleteCommand.notPermitted)
+
+      message.channel.send({embeds: [em]});
     }
   }
 }

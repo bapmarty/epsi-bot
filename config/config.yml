@@ -31,3 +31,7 @@ help:
 
 common:
   onLogin: EPSI-WIS bot has been connected to the discord !
+
+deleteCommand:
+  tooBigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
+  notPermitted: Vous ne pouvez pas utiliser cette commande !
