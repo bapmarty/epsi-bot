@@ -1,4 +1,5 @@
 const { Client, Intents } = require("discord.js");
+const DeleteMessage = require("./commands/deleteMessage");
 require('dotenv').config();
 
 const ConfigYaml = require('./config/config');
@@ -17,7 +18,8 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("messageCreate", message => {
-	Helper.parse(message, client);
+	Helper.parse(message, client, conf);
+	DeleteMessage.parse(message, client, conf);
 });
 
 client.login(process.env.DISCORD_TOKEN);
