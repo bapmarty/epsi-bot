@@ -19,8 +19,6 @@ module.exports = class DeleteMessage extends MessageWrapper {
   static deleteLastMessage(message, client, conf) {
     let number = message.content.split(" ")[1];
 
-    console.log(conf.roles.owner);
-
     if (message.member.roles.cache.some(r => r.id === conf.roles.owner)) {
       number = number === undefined ? 2 : number;
       if (number <= 100) {

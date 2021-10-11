@@ -21,8 +21,7 @@ client.on("ready", () => {
 });
 
 client.on("guildMemberAdd", member => {
-	console.log("new member joined, go to the class");
-	member.roles.add(conf.roles.newStudent);
+	new OnMemberJoinGuild(member, conf);
 });
 
 client.on("messageCreate", message => {

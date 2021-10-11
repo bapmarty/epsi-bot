@@ -1,32 +1,4 @@
 ---
-text:
-  timeout: |
-    Bon, à bientôt j'espère...
-    **`Vous venez de vous faire kick du serveur`**
-  wrong_answer: Désolé, je n'ai pas bien compris... pouvez-vous répéter ?
-  repeat: Bon, je vais recommencer le questionnaire...
-  welcome: Bienvenue sur le discord **EPSI/WIS** !
-  presentation: |
-    Salut, je vais vous demander de répondre à quelques questions afin de vous placez correctement dans le discord !
-    Merci d'y répondre sérieusement.
-  firstname: Pourriez-vous me donner votre prénom ?
-  lastname: Pourriez-vous me donner votre nom de famille ?
-  status: |
-    Etes-vous un étudiant, un professeur ou un administrateur ?
-    *réponses acceptées: `Etudiant`, `Professeur`, `Administrateur`*
-  school: |
-    Dans quelle école êtes-vous ?
-    *réponses acceptées: `EPSI`, `WIS`*
-  level: |
-    Dans quelle promotion rentrez-vous ?
-    *réponses acceptées: `B1`, `B2`, `B3`, `I1`, `I2`*
-  delegate: |
-    Pour finir, êtes-vous le délégué de votre promotion ?
-    *réponses acceptées: `Oui`, `Non`*
-  correct: |
-    Ces informations sont correctes ?
-    *réponses acceptées: `Oui`, `Non`*
-
 help:
   title: Comment puis-je t'aider?
 
