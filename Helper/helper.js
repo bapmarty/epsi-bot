@@ -2,9 +2,6 @@ const { MessageEmbed } = require("discord.js");
 require('dotenv').config();
 
 const MessageWrapper = require('../common/messageWrapper');
-const ConfigYaml = require('../config/config');
-
-const conf = new ConfigYaml().conf;
 
 module.exports = class Helper extends MessageWrapper {
 
@@ -14,11 +11,11 @@ module.exports = class Helper extends MessageWrapper {
     return message.content.startsWith(prefix + 'help');
   }
 
-  static action(message, client) {
-    this.getHelperMessage(message);
+  static action(message, client, conf) {
+    this.getHelperMessage(message, conf);
   }
 
-  static getHelperMessage(message) {
+  static getHelperMessage(message, conf) {
     message.delete();
     const em = new MessageEmbed()
       .setColor(0x7C147B)

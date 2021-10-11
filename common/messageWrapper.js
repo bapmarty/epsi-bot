@@ -5,9 +5,9 @@ module.exports = class MessageWrapper {
     this.prefix = process.env.DISCORD_PREFIX;
   }
 
-  static parse(message, client) {
+  static parse(message, client, conf) {
     if (this.match(message, this.prefix)) {
-      this.action(message, client);
+      this.action(message, client, conf);
       return true;
     }
     return false;
@@ -17,5 +17,5 @@ module.exports = class MessageWrapper {
     return false;
   } 
   
-  static action(message, client) { }
+  static action(message, client, conf) { }
 }
