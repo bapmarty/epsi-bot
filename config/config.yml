@@ -1,3 +1,4 @@
+---
 text:
   timeout: |
     Bon, à bientôt j'espère...
@@ -29,9 +30,14 @@ text:
 help:
   title: Comment puis-je t'aider?
 
-common:
+global:
+  prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
 
 deleteCommand:
   tooBigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
   notPermitted: Vous ne pouvez pas utiliser cette commande !
+
+roles:
+  owner: "896442668324888606"
+  newStudent: "896447640085090304"

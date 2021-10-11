@@ -7,7 +7,7 @@ module.exports = class Helper extends MessageWrapper {
 
   constructor() { }
 
-  static match(message, prefix = process.env.DISCORD_PREFIX) {
+  static match(message, prefix) {
     return message.content.startsWith(prefix + 'help');
   }
 
