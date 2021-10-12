@@ -22,7 +22,7 @@ client.on("ready", () => {
 	console.log(conf.global.onLogin);
 });
 
-// github
+// github to focus old message, because the bot take only reaction state on new message !
 client.on('raw', packet => {
 	// We don't want this to run on unrelated packets
 	if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;

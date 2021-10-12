@@ -28,12 +28,12 @@ roles:
   wisi2: "896444159039266867"
 
 printRole:
-  channelIdSchool: "897178874704711700"
+  channelNameSchool: bienvenue
   titleSchool: Choisi ton école
   descriptionSchool: |
     <:one:897250640135348254> EPSI
     <:two:897252007025459210> WIS
-  channelIdEPSI: "897179047778480189"
+  channelNameEPSI: roles-epsi
   titleEPSI: Choisis ta section
   descriptionEPSI: |
     <:one:897250640135348254> Bachelor 1
@@ -41,7 +41,7 @@ printRole:
     <:three:897252093658816554> Bachelor 3
     <:four:897252278006853655> Ingénieur 1
     <:five:897252314518269993> Ingénieur 2
-  channelIdWIS: "897421338451533874"
+  channelNameWIS: roles-wis
   titleWIS: Choisis ta section
   descriptionWIS: |
     <:one:897250640135348254> Bachelor 1
