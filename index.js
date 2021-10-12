@@ -63,6 +63,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 	if (!user.bot) {
 		OnReactions.getWelcomeReaction(reaction, user, conf);
 		OnReactions.getEpsiSectionReaction(reaction, user, conf);
+		OnReactions.getWisSectionReaction(reaction, user, conf);
 	}
 });
 client.login(process.env.DISCORD_TOKEN);

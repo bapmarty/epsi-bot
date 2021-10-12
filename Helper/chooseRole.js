@@ -17,6 +17,8 @@ module.exports = class ChooseRole extends MessageWrapper {
       this.getRoleForSchool(message, conf);
     } else if (witchSection === "epsi") {
       this.getRoleForEpsi(message, conf);
+    } else if (witchSection === "wis") {
+      this.getRoleForWis(message, conf);
     }
   }
 
@@ -37,6 +39,21 @@ module.exports = class ChooseRole extends MessageWrapper {
       .setColor(0x7C147B)
       .setTitle(conf.printRole.titleEPSI)
       .setDescription(conf.printRole.descriptionEPSI);
+
+    message.channel.send({embeds: [em]})
+      .then(emMessage => emMessage.react("1️⃣")
+        .then(() => emMessage.react("2️⃣"))
+        .then(() => emMessage.react("3️⃣"))
+        .then(() => emMessage.react("4️⃣"))
+        .then(() => emMessage.react("5️⃣"))
+      );
+  }
+
+  static getRoleForWis(message, conf) {
+    const em = new MessageEmbed()
+      .setColor(0x7C147B)
+      .setTitle(conf.printRole.titleWIS)
+      .setDescription(conf.printRole.descriptionWIS);
 
     message.channel.send({embeds: [em]})
       .then(emMessage => emMessage.react("1️⃣")
