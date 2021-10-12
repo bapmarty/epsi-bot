@@ -2,18 +2,18 @@ require('dotenv').config();
 
 module.exports = class MessageWrapper {
   constructor () {
-    this.prefix = process.env.DISCORD_PREFIX;
   }
 
   static parse(message, client, conf) {
-    if (this.match(message, this.prefix)) {
+    const prefix = conf.global.prefix;
+    if (this.match(message, prefix)) {
       this.action(message, client, conf);
       return true;
     }
     return false;
   }
 
-  static match(message, prefix = this.prefix) {
+  static match(message, prefix) {
     return false;
   } 
   

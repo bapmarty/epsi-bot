@@ -8,7 +8,7 @@ module.exports = class DeleteMessage extends MessageWrapper {
 
   constructor() { }
 
-  static match(message, prefix = process.env.DISCORD_PREFIX) {
+  static match(message, prefix) {
     return message.content.startsWith(prefix + "delete");
   }
 
@@ -19,11 +19,8 @@ module.exports = class DeleteMessage extends MessageWrapper {
   static deleteLastMessage(message, client, conf) {
     let number = message.content.split(" ")[1];
 
-    if (number === undefined) {
-      number = 1;
-    }
-
-    if (message.member.roles.cache.some(r => r.id === process.env.DISCORD_OWNER_ROLE)) {
+    if (message.member.roles.cache.some(r => r.id === conf.roles.owner)) {
+      number = number === undefined ? 2 : number;
       if (number <= 100) {
         message.delete();
         const clear = async () => {

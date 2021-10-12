@@ -1,37 +1,51 @@
-text:
-  timeout: |
-    Bon, à bientôt j'espère...
-    **`Vous venez de vous faire kick du serveur`**
-  wrong_answer: Désolé, je n'ai pas bien compris... pouvez-vous répéter ?
-  repeat: Bon, je vais recommencer le questionnaire...
-  welcome: Bienvenue sur le discord **EPSI/WIS** !
-  presentation: |
-    Salut, je vais vous demander de répondre à quelques questions afin de vous placez correctement dans le discord !
-    Merci d'y répondre sérieusement.
-  firstname: Pourriez-vous me donner votre prénom ?
-  lastname: Pourriez-vous me donner votre nom de famille ?
-  status: |
-    Etes-vous un étudiant, un professeur ou un administrateur ?
-    *réponses acceptées: `Etudiant`, `Professeur`, `Administrateur`*
-  school: |
-    Dans quelle école êtes-vous ?
-    *réponses acceptées: `EPSI`, `WIS`*
-  level: |
-    Dans quelle promotion rentrez-vous ?
-    *réponses acceptées: `B1`, `B2`, `B3`, `I1`, `I2`*
-  delegate: |
-    Pour finir, êtes-vous le délégué de votre promotion ?
-    *réponses acceptées: `Oui`, `Non`*
-  correct: |
-    Ces informations sont correctes ?
-    *réponses acceptées: `Oui`, `Non`*
+---
+global:
+  prefix: "!"
+  onLogin: EPSI-WIS bot has been connected to the discord !
 
 help:
   title: Comment puis-je t'aider?
 
-common:
-  onLogin: EPSI-WIS bot has been connected to the discord !
-
 deleteCommand:
   tooBigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
   notPermitted: Vous ne pouvez pas utiliser cette commande !
+
+roles:
+  owner: "896442668324888606"
+  newStudent: "896447640085090304"
+  student: "896442951482343444"
+  epsi: "897420846665183282"
+  wis: "897420903690928138"
+  epsib1: "896443287462903828"
+  epsib2: "896443260258619392"
+  epsib3: "896443164779479070"
+  epsii1: "896443133955563571"
+  epsii2: "896443062358777939"
+  wisb1: "896444768085762068"
+  wisb2: "896444661248438302"
+  wisb3: "896444620932808705"
+  wisi1: "896444408428384316"
+  wisi2: "896444159039266867"
+
+printRole:
+  channelIdSchool: "897178874704711700"
+  titleSchool: Choisi ton école
+  descriptionSchool: |
+    <:one:897250640135348254> EPSI
+    <:two:897252007025459210> WIS
+  channelIdEPSI: "897179047778480189"
+  titleEPSI: Choisis ta section
+  descriptionEPSI: |
+    <:one:897250640135348254> Bachelor 1
+    <:two:897252007025459210> Bachelor 2
+    <:three:897252093658816554> Bachelor 3
+    <:four:897252278006853655> Ingénieur 1
+    <:five:897252314518269993> Ingénieur 2
+  channelIdWIS: "897421338451533874"
+  titleWIS: Choisis ta section
+  descriptionWIS: |
+    <:one:897250640135348254> Bachelor 1
+    <:two:897252007025459210> Bachelor 2
+    <:three:897252093658816554> Bachelor 3
+    <:four:897252278006853655> Ingénieur 1
+    <:five:897252314518269993> Ingénieur 2
