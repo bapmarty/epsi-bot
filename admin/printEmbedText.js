@@ -2,31 +2,33 @@ const { MessageEmbed } = require("discord.js");
 
 const MessageWrapper = require("../common/messageWrapper");
 
-module.exports = class ChooseRole extends MessageWrapper {
+module.exports = class PrintEmbedText extends MessageWrapper {
   constructor () { }
 
   static match(message, prefix) {
-    return message.content.startsWith(prefix + "print-role");
+    return message.content.startsWith(prefix + "print");
   }
 
   static action(message, client, conf) {
     const witchSection = message.content.split(" ")[1];
 
     message.delete();
-    if (witchSection === "school") {
-      this.getRoleForSchool(message, conf);
-    } else if (witchSection === "epsi") {
-      this.getRoleForEpsi(message, conf);
-    } else if (witchSection === "wis") {
-      this.getRoleForWis(message, conf);
+    if (message.member.roles.cache.some(r => r.name === conf.roles.owner)) {
+      if (witchSection === "school") {
+        this.getRoleForSchool(message, conf);
+      } else if (witchSection === "epsi") {
+        this.getRoleForEpsi(message, conf);
+      } else if (witchSection === "wis") {
+        this.getRoleForWis(message, conf);
+      }
     }
   }
 
   static getRoleForSchool(message, conf) {
     const em = new MessageEmbed()
     .setColor(0x7C147B)
-    .setTitle(conf.printRole.titleSchool)
-    .setDescription(conf.printRole.descriptionSchool);
+    .setTitle(conf.command.admin.print.school.title)
+    .setDescription(conf.command.admin.print.school.description);
 
   message.channel.send({embeds: [em]})
     .then(emMessage => emMessage.react("1️⃣")
@@ -37,8 +39,8 @@ module.exports = class ChooseRole extends MessageWrapper {
   static getRoleForEpsi(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setTitle(conf.printRole.titleEPSI)
-      .setDescription(conf.printRole.descriptionEPSI);
+      .setTitle(conf.command.admin.print.epsi.title)
+      .setDescription(conf.command.admin.print.epsi.description);
 
     message.channel.send({embeds: [em]})
       .then(emMessage => emMessage.react("1️⃣")
@@ -52,8 +54,8 @@ module.exports = class ChooseRole extends MessageWrapper {
   static getRoleForWis(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setTitle(conf.printRole.titleWIS)
-      .setDescription(conf.printRole.descriptionWIS);
+      .setTitle(conf.command.admin.print.wis.title)
+      .setDescription(conf.command.admin.print.wis.description);
 
     message.channel.send({embeds: [em]})
       .then(emMessage => emMessage.react("1️⃣")

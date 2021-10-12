@@ -1,11 +1,11 @@
-const { Client, Intents } = require("discord.js");
-const DeleteMessage = require("./commands/deleteMessage");
+const { Client, Intents, MessageEmbed } = require("discord.js");
+const Delete = require("./admin/delete");
+const PrintEmbedText = require("./admin/printEmbedText");
 require('dotenv').config();
 
 const ConfigYaml = require('./config/config');
 const OnMemberJoinGuild = require("./events/onMemberJoin");
 const OnReactions = require("./events/onReactions");
-const ChooseRole = require("./Helper/chooseRole");
 const Helper = require('./Helper/helper');
 
 const conf = new ConfigYaml().conf;
@@ -55,8 +55,8 @@ client.on("guildMemberAdd", member => {
 client.on("messageCreate", message => {
 	Helper.parse(message, client, conf);
 
-	DeleteMessage.parse(message, client, conf);
-	ChooseRole.parse(message, client, conf);
+	Delete.parse(message, client, conf);
+	PrintEmbedText.parse(message, client, conf);
 });
 
 client.on("messageReactionAdd", (reaction, user) => {
