@@ -7,7 +7,7 @@ module.exports = class Helper extends MessageWrapper {
   constructor() { }
 
   static match(message, prefix) {
-    return message.content.startsWith(prefix + 'help');
+    return message.content.startsWith(prefix + 'help') || message.content.startsWith(prefix + 'h');
   }
 
   static action(message, client, conf) {
@@ -21,7 +21,6 @@ module.exports = class Helper extends MessageWrapper {
 
   static printHelperMessage(message, client, conf) {
     message.delete();
-    console.log(message.author);
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setAuthor(message.author.username, client.user.avatarURL(), "https://epsiwis.fr/")
