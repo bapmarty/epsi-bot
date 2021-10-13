@@ -1,3 +1,4 @@
+const { MessageEmbed } = require("discord.js");
 const MessageWrapper = require("../common/messageWrapper");
 
 module.exports = class Student extends MessageWrapper {
@@ -23,9 +24,15 @@ module.exports = class Student extends MessageWrapper {
     if (newName != null) {
       message.delete();
       message.member.setNickname(newName);
-      message.channel.send(`Votre pseudo à bie été changé <@${message.author.id}>`);
+      em = new MessageEmbed()
+        .setColor(0x7C147B)
+        .setDescription(conf.command.user.change.description.replace("%mention%", message.author.id));
+      message.channel.send({embeds: [em]});
     } else {
-      message.channel.send(` <@${message.author.id}> je ne peux pas changer ton pseudo, utilise la commande:\n\`\`!user rename [prenom.nom]\`\``);
+      em = new MessageEmbed()
+        .setColor(0x7C147B)
+        .setDescription(conf.command.user.error.description.replace("%mention%", message.author.id));
+      message.channel.send({embeds: [em]});
     }
   }
 }
