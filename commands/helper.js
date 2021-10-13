@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-require('dotenv').config();
 
 const MessageWrapper = require('../common/messageWrapper');
 

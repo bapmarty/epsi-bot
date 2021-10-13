@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed } = require("discord.js");
+const { Client } = require("discord.js");
 const Delete = require("./admin/delete");
 const PrintEmbedText = require("./admin/printEmbedText");
 require('dotenv').config();
@@ -6,7 +6,7 @@ require('dotenv').config();
 const ConfigYaml = require('./config/config');
 const OnMemberJoinGuild = require("./events/onMemberJoin");
 const OnReactions = require("./events/onReactions");
-const Helper = require('./Helper/helper');
+const Helper = require('./commands/helper');
 
 const conf = new ConfigYaml().conf;
 
