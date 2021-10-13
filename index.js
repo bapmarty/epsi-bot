@@ -7,6 +7,7 @@ const ConfigYaml = require('./config/config');
 const OnMemberJoinGuild = require("./events/onMemberJoin");
 const OnReactions = require("./events/onReactions");
 const Helper = require('./commands/helper');
+const Student = require('./commands/student');
 
 const conf = new ConfigYaml().conf;
 
@@ -54,6 +55,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("messageCreate", message => {
 	Helper.parse(message, client, conf);
+	Student.parse(message, client, conf);
 
 	Delete.parse(message, client, conf);
 	PrintEmbedText.parse(message, client, conf);
