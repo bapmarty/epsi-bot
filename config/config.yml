@@ -4,7 +4,7 @@ global:
   onLogin: EPSI-WIS bot has been connected to the discord !
   version: "0.6.3"
 
-command:
+commands:
   admin:
     help:
       description: |
@@ -61,6 +61,9 @@ command:
       description: |
          %mention% je ne peux pas changer ton pseudo, utilise la commande:
           \`\`!user rename [prenom.nom]\`\`
+
+  poll:
+    footer: Sondage lancé par %mention%
 
 roles:
   owner: Owner

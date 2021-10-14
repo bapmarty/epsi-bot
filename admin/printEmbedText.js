@@ -27,8 +27,8 @@ module.exports = class PrintEmbedText extends MessageWrapper {
   static getRoleForSchool(message, conf) {
     const em = new MessageEmbed()
     .setColor(0x7C147B)
-    .setTitle(conf.command.admin.print.school.title)
-    .setDescription(conf.command.admin.print.school.description);
+    .setTitle(conf.commands.admin.print.school.title)
+    .setDescription(conf.commands.admin.print.school.description);
 
   message.channel.send({embeds: [em]})
     .then(emMessage => emMessage.react("1️⃣")
@@ -39,8 +39,8 @@ module.exports = class PrintEmbedText extends MessageWrapper {
   static getRoleForEpsi(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setTitle(conf.command.admin.print.epsi.title)
-      .setDescription(conf.command.admin.print.epsi.description);
+      .setTitle(conf.commands.admin.print.epsi.title)
+      .setDescription(conf.commands.admin.print.epsi.description);
 
     message.channel.send({embeds: [em]})
       .then(emMessage => emMessage.react("1️⃣")
@@ -54,8 +54,8 @@ module.exports = class PrintEmbedText extends MessageWrapper {
   static getRoleForWis(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setTitle(conf.command.admin.print.wis.title)
-      .setDescription(conf.command.admin.print.wis.description);
+      .setTitle(conf.commands.admin.print.wis.title)
+      .setDescription(conf.commands.admin.print.wis.description);
 
     message.channel.send({embeds: [em]})
       .then(emMessage => emMessage.react("1️⃣")

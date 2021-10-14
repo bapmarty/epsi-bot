@@ -33,7 +33,7 @@ module.exports = class Delete extends MessageWrapper {
       message.delete();
       const em = new MessageEmbed()
         .setColor(0x7C147B)
-        .setDescription(conf.command.delete.erros.bigNumber)
+        .setDescription(conf.commands.delete.erros.bigNumber)
 
       message.channel.send({embeds: [em]});
     }

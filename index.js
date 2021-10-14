@@ -1,6 +1,4 @@
 const { Client } = require("discord.js");
-const Delete = require("./admin/delete");
-const PrintEmbedText = require("./admin/printEmbedText");
 require('dotenv').config();
 
 const ConfigYaml = require('./config/config');
@@ -8,6 +6,9 @@ const OnMemberJoinGuild = require("./events/onMemberJoin");
 const OnReactions = require("./events/onReactions");
 const Helper = require('./commands/helper');
 const Student = require('./commands/student');
+const Delete = require("./admin/delete");
+const PrintEmbedText = require("./admin/printEmbedText");
+const Poll = require("./commands/poll");
 
 const conf = new ConfigYaml().conf;
 
@@ -56,6 +57,7 @@ client.on("guildMemberAdd", member => {
 client.on("messageCreate", message => {
 	Helper.parse(message, client, conf);
 	Student.parse(message, client, conf);
+	Poll.parse(message, client, conf);
 
 	Delete.parse(message, client, conf);
 	PrintEmbedText.parse(message, client, conf);
@@ -68,4 +70,5 @@ client.on("messageReactionAdd", (reaction, user) => {
 		OnReactions.getWisSectionReaction(reaction, user, conf);
 	}
 });
+
 client.login(process.env.DISCORD_TOKEN);

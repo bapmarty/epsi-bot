@@ -26,12 +26,12 @@ module.exports = class Student extends MessageWrapper {
       message.member.setNickname(newName);
       em = new MessageEmbed()
         .setColor(0x7C147B)
-        .setDescription(conf.command.user.change.description.replace("%mention%", message.author.id));
+        .setDescription(conf.commands.user.change.description.replace("%mention%", message.author.id));
       message.channel.send({embeds: [em]});
     } else {
       em = new MessageEmbed()
         .setColor(0x7C147B)
-        .setDescription(conf.command.user.error.description.replace("%mention%", message.author.id));
+        .setDescription(conf.commands.user.error.description.replace("%mention%", message.author.id));
       message.channel.send({embeds: [em]});
     }
   }

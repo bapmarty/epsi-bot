@@ -6,7 +6,7 @@ module.exports = class OnReactions {
     const message = reaction.message;
     const emoji = reaction.emoji;
 
-    if (message.channel.name === conf.command.admin.print.school.channel) {
+    if (message.channel.name === conf.commands.admin.print.school.channel) {
       message.guild.members.fetch(user.id).then(member => {
         member.roles.add(emoji.name === "1️⃣" ? conf.roles.epsi : conf.roles.wis);
       });
@@ -19,7 +19,7 @@ module.exports = class OnReactions {
     const message = reaction.message;
     const emoji = reaction.emoji;
 
-    if (message.channel.name === conf.command.admin.print.epsi.channel) {
+    if (message.channel.name === conf.commands.admin.print.epsi.channel) {
       message.guild.members.fetch(user.id).then(member => {
         switch(emoji.name) {
           case "1️⃣":
@@ -45,7 +45,7 @@ module.exports = class OnReactions {
     const message = reaction.message;
     const emoji = reaction.emoji;
 
-    if (message.channel.name === conf.command.admin.print.wis.channel) {
+    if (message.channel.name === conf.commands.admin.print.wis.channel) {
       message.guild.members.fetch(user.id).then(member => {
         switch(emoji.name) {
           case "1️⃣":

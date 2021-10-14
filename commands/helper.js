@@ -25,9 +25,9 @@ module.exports = class Helper extends MessageWrapper {
       .setColor(0x7C147B)
       .setAuthor(message.author.username, client.user.avatarURL(), "https://epsiwis.fr/")
       .setThumbnail(client.user.avatarURL())
-      .setDescription(conf.command.help.description)
+      .setDescription(conf.commands.help.description)
       .setTimestamp()
-      .setFooter(conf.command.help.footer.replace("%version%", conf.global.version));
+      .setFooter(conf.commands.help.footer.replace("%version%", conf.global.version));
     message.channel.send({embeds: [em]});
   }
 
@@ -37,9 +37,9 @@ module.exports = class Helper extends MessageWrapper {
       .setColor(0x7C147B)
       .setAuthor(message.author.username, client.user.avatarURL(), "https://epsiwis.fr/")
       .setThumbnail(client.user.avatarURL())
-      .setDescription(conf.command.admin.help.description)
+      .setDescription(conf.commands.admin.help.description)
       .setTimestamp()
-      .setFooter(conf.command.help.footer.replace("%version%", conf.global.version));
+      .setFooter(conf.commands.help.footer.replace("%version%", conf.global.version));
     message.channel.send({embeds: [em]});
   }
 }
