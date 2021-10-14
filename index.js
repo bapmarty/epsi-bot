@@ -1,12 +1,17 @@
-const { Client, Intents } = require("discord.js");
-const DeleteMessage = require("./commands/deleteMessage");
+const { Client } = require("discord.js");
 require('dotenv').config();
 
 const ConfigYaml = require('./config/config');
 const OnMemberJoinGuild = require("./events/onMemberJoin");
 const OnReactions = require("./events/onReactions");
-const ChooseRole = require("./Helper/chooseRole");
-const Helper = require('./Helper/helper');
+const Helper = require('./commands/helper');
+const Student = require('./commands/student');
+const Delete = require("./admin/delete");
+const PrintEmbedText = require("./admin/printEmbedText");
+const Poll = require("./commands/poll");
+const MemberCount = require("./commands/memberCount");
+const Site = require("./commands/site");
+const Update = require("./listeners/update");
 
 const conf = new ConfigYaml().conf;
 
@@ -22,7 +27,7 @@ client.on("ready", () => {
 	console.log(conf.global.onLogin);
 });
 
-// github
+// github to focus old message, because the bot take only reaction state on new message !
 client.on('raw', packet => {
 	// We don't want this to run on unrelated packets
 	if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
@@ -54,9 +59,14 @@ client.on("guildMemberAdd", member => {
 
 client.on("messageCreate", message => {
 	Helper.parse(message, client, conf);
+	Student.parse(message, client, conf);
+	Poll.parse(message, client, conf);
+	MemberCount.parse(message, client, conf);
+	Site.parse(message, client, conf);
 
-	DeleteMessage.parse(message, client, conf);
-	ChooseRole.parse(message, client, conf);
+	Delete.parse(message, client, conf);
+	PrintEmbedText.parse(message, client, conf);
+	new Update(message, client, conf);
 });
 
 client.on("messageReactionAdd", (reaction, user) => {
@@ -66,4 +76,5 @@ client.on("messageReactionAdd", (reaction, user) => {
 		OnReactions.getWisSectionReaction(reaction, user, conf);
 	}
 });
+
 client.login(process.env.DISCORD_TOKEN);

@@ -2,16 +2,89 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
+  version: "0.10.1"
 
-help:
-  title: Comment puis-je t'aider?
+commands:
+  admin:
+    help:
+      description: |
+        __**[ADMIN] Voici les commands admins**__
 
-deleteCommand:
-  tooBigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
-  notPermitted: Vous ne pouvez pas utiliser cette commande !
+        **!print [school, epsi, wis]** - Affiche les différents embeds
+        **!delete [*number < 100*]** - Permet de supprimer *number* dernier messages
+
+    print:
+      school:
+        channel: bienvenue
+        title: Choisis ton école
+        description: |
+          <:one:897250640135348254> EPSI
+          <:two:897252007025459210> WIS
+      epsi:
+        channel: roles-epsi
+        title: Choisis ta classe
+        description: |
+          <:one:897250640135348254> Bachelor 1
+          <:two:897252007025459210> Bachelor 2
+          <:three:897252093658816554> Bachelor 3
+          <:four:897252278006853655> Ingénieur 1
+          <:five:897252314518269993> Ingénieur 2
+      wis:
+        channel: roles-wis
+        title: Choisis ta classe
+        description: |
+          <:one:897250640135348254> Bachelor 1
+          <:two:897252007025459210> Bachelor 2
+          <:three:897252093658816554> Bachelor 3
+          <:four:897252278006853655> Ingénieur 1
+          <:five:897252314518269993> Ingénieur 2
+
+    update:
+      channel: discord-updates
+      title: __**Update EPSI-bot v%version%**__
+
+  help:
+    description: |
+      __**Voici quelques command qui pourrait t'être utile**__
+
+      **!help** - Afficher la liste des commandes
+      **!about** - Qui est derrière tout ça <:thinking:897518530159841301> // todo
+      **!user rename [*prenom.nom*]** - Changer de pseudo sur le discord
+      **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
+      **!memberCount** - Afficher le nombre de personnes sur le discord
+      **!site** - Afficher le lien du site internet
+
+  delete:
+    errors:
+      bigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
+      notPermitted: Vous ne pouvez pas utiliser cette commande !
+
+  user:
+    change:
+      description: |
+        Votre pseudo à bien été changé <@%mention%>
+    error:
+      description: |
+         %mention% je ne peux pas changer ton pseudo, utilise la commande:
+          \`\`!user rename [prenom.nom]\`\`
+
+  poll:
+    footer: Sondage lancé par %mention%
+      
+  memberCount:
+    channel: bot
+    title: Il y a %memberCount% personnes sur le serveur !
+    error: Utilise plutôt la commande ici <@%mention%>
+
+  site:
+    title: __**toutes les informations sur l'EPSI/WIS sont disponible ici**__
+    description: "[EPSI/WIS](https://epsiwis.fr/)"
+
+embeds:
+  footer: Made with ♥ by bapmarty • %version%
 
 roles:
-  owner: "896442668324888606"
+  owner: Owner
   newStudent: "896447640085090304"
   student: "896442951482343444"
   epsi: "897420846665183282"
@@ -26,26 +99,3 @@ roles:
   wisb3: "896444620932808705"
   wisi1: "896444408428384316"
   wisi2: "896444159039266867"
-
-printRole:
-  channelIdSchool: "897178874704711700"
-  titleSchool: Choisi ton école
-  descriptionSchool: |
-    <:one:897250640135348254> EPSI
-    <:two:897252007025459210> WIS
-  channelIdEPSI: "897179047778480189"
-  titleEPSI: Choisis ta section
-  descriptionEPSI: |
-    <:one:897250640135348254> Bachelor 1
-    <:two:897252007025459210> Bachelor 2
-    <:three:897252093658816554> Bachelor 3
-    <:four:897252278006853655> Ingénieur 1
-    <:five:897252314518269993> Ingénieur 2
-  channelIdWIS: "897421338451533874"
-  titleWIS: Choisis ta section
-  descriptionWIS: |
-    <:one:897250640135348254> Bachelor 1
-    <:two:897252007025459210> Bachelor 2
-    <:three:897252093658816554> Bachelor 3
-    <:four:897252278006853655> Ingénieur 1
-    <:five:897252314518269993> Ingénieur 2

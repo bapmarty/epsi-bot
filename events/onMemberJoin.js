@@ -1,6 +1,5 @@
 module.exports = class OnMemberJoinGuild {
   constructor(member, conf) {
-    console.log("New member joined");
     this.addRoleToNewMember(member, conf);
   }
 
