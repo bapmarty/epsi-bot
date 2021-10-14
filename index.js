@@ -11,7 +11,7 @@ const PrintEmbedText = require("./admin/printEmbedText");
 const Poll = require("./commands/poll");
 const MemberCount = require("./commands/memberCount");
 const Site = require("./commands/site");
-const Update = require("./admin/update");
+const Update = require("./listeners/update");
 
 const conf = new ConfigYaml().conf;
 
