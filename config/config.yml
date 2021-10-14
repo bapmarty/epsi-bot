@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.7.0"
+  version: "0.8.0"
 
 commands:
   admin:
@@ -44,9 +44,10 @@ commands:
       __**Voici quelques command qui pourrait t'être utile**__
 
       **!help** - Afficher la liste des commandes
-      **!about** - Qui est derrière tout ça <:thinking:897518530159841301>
+      **!about** - Qui est derrière tout ça <:thinking:897518530159841301> // todo
       **!user rename [*prenom.nom*]** - Changer de pseudo sur le discord
-    footer: Made with ♥ by bapmarti • %version%
+      **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
+      **!memberCount** - Afficher le nombre de personnes sur le discord
 
   delete:
     errors:
@@ -64,6 +65,18 @@ commands:
 
   poll:
     footer: Sondage lancé par %mention%
+      
+  memberCount:
+    channel: bot
+    title: Il y a %memberCount% personnes sur le serveur !
+    error: Utilise plutôt la commande ici <@%mention%>
+
+  site:
+    title: __**toutes les informations sur l'EPSI/WIS sont disponible ici**__
+    description: "[EPSI/WIS](https://epsiwis.fr/)"
+
+embeds:
+  footer: Made with ♥ by bapmarty • %version%
 
 roles:
   owner: Owner

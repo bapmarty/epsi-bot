@@ -9,6 +9,8 @@ const Student = require('./commands/student');
 const Delete = require("./admin/delete");
 const PrintEmbedText = require("./admin/printEmbedText");
 const Poll = require("./commands/poll");
+const MemberCount = require("./commands/memberCount");
+const Site = require("./commands/site");
 
 const conf = new ConfigYaml().conf;
 
@@ -58,6 +60,8 @@ client.on("messageCreate", message => {
 	Helper.parse(message, client, conf);
 	Student.parse(message, client, conf);
 	Poll.parse(message, client, conf);
+	MemberCount.parse(message, client, conf);
+	Site.parse(message, client, conf);
 
 	Delete.parse(message, client, conf);
 	PrintEmbedText.parse(message, client, conf);

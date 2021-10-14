@@ -23,11 +23,11 @@ module.exports = class Helper extends MessageWrapper {
     message.delete();
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setAuthor(message.author.username, client.user.avatarURL(), "https://epsiwis.fr/")
+      .setAuthor(client.user.username, client.user.avatarURL(), "https://epsiwis.fr/")
       .setThumbnail(client.user.avatarURL())
       .setDescription(conf.commands.help.description)
       .setTimestamp()
-      .setFooter(conf.commands.help.footer.replace("%version%", conf.global.version));
+      .setFooter(conf.embeds.footer.replace("%version%", conf.global.version));
     message.channel.send({embeds: [em]});
   }
 
@@ -35,11 +35,11 @@ module.exports = class Helper extends MessageWrapper {
     message.delete();
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setAuthor(message.author.username, client.user.avatarURL(), "https://epsiwis.fr/")
+      .setAuthor(client.user.username, client.user.avatarURL(), "https://epsiwis.fr/")
       .setThumbnail(client.user.avatarURL())
       .setDescription(conf.commands.admin.help.description)
       .setTimestamp()
-      .setFooter(conf.commands.help.footer.replace("%version%", conf.global.version));
+      .setFooter(conf.embeds.footer.replace("%version%", conf.global.version));
     message.channel.send({embeds: [em]});
   }
 }
