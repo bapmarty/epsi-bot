@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.9.2"
+  version: "0.10.0"
 
 commands:
   admin:
@@ -38,6 +38,10 @@ commands:
           <:three:897252093658816554> Bachelor 3
           <:four:897252278006853655> Ingénieur 1
           <:five:897252314518269993> Ingénieur 2
+
+    update:
+      channel: discord-updates
+      title: __**Update EPSI-bot v%version%**__
 
   help:
     description: |
