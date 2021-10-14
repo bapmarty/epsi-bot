@@ -19,19 +19,18 @@ module.exports = class Student extends MessageWrapper {
   }
 
   static updateStudentUsername(message, client, conf) {
-    const newName = message.content.split(" ")[2] || null;
-
+    let temp = message.content;
+    const newName = temp.split("\n")[0].substr(temp.indexOf(" ", 3) + 1) || null;
+    var em = new MessageEmbed()
+      .setColor(0x7C147B);
+    
     if (newName != null) {
       message.delete();
       message.member.setNickname(newName);
-      em = new MessageEmbed()
-        .setColor(0x7C147B)
-        .setDescription(conf.commands.user.change.description.replace("%mention%", message.author.id));
+        em.setDescription(conf.commands.user.change.description.replace("%mention%", message.author.id));
       message.channel.send({embeds: [em]});
     } else {
-      em = new MessageEmbed()
-        .setColor(0x7C147B)
-        .setDescription(conf.commands.user.error.description.replace("%mention%", message.author.id));
+      em.setDescription(conf.commands.user.error.description.replace("%mention%", message.author.id));
       message.channel.send({embeds: [em]});
     }
   }

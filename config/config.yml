@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.9.1"
+  version: "0.9.2"
 
 commands:
   admin:
@@ -58,7 +58,7 @@ commands:
   user:
     change:
       description: |
-        Votre pseudo à bie été changé <@%mention%>
+        Votre pseudo à bien été changé <@%mention%>
     error:
       description: |
          %mention% je ne peux pas changer ton pseudo, utilise la commande:
