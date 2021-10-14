@@ -7,6 +7,7 @@ module.exports = class Site extends MessageWrapper {
   }
 
   static action(message, client, conf) {
+    message.delete();
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setThumbnail(client.user.avatarURL)

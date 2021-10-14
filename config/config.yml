@@ -48,6 +48,7 @@ commands:
       **!user rename [*prenom.nom*]** - Changer de pseudo sur le discord
       **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
       **!memberCount** - Afficher le nombre de personnes sur le discord
+      **!site** - Afficher le lien du site internet
 
   delete:
     errors:
