@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.10.2"
+  version: "0.10.3"
 
 commands:
   admin:
@@ -11,7 +11,9 @@ commands:
         __**[ADMIN] Voici les commands admins**__
 
         **!print [school, epsi, wis]** - Affiche les différents embeds
-        **!delete [*number < 100*]** - Permet de supprimer *number* dernier messages 
+        **!delete [*number < 100*]** - Permet de supprimer *number* dernier messages
+
+        Vous pouvez écrire les updates du discord dans le channel <#%channel> sans commande automatiquement elles seront transformé en embeds
 
     print:
       school:
