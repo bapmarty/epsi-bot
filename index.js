@@ -12,6 +12,7 @@ const Poll = require("./commands/poll");
 const MemberCount = require("./commands/memberCount");
 const Site = require("./commands/site");
 const Update = require("./listeners/update");
+const About = require("./commands/about");
 
 const conf = new ConfigYaml().conf;
 
@@ -63,6 +64,7 @@ client.on("messageCreate", message => {
 	Poll.parse(message, client, conf);
 	MemberCount.parse(message, client, conf);
 	Site.parse(message, client, conf);
+	About.parse(message, client, conf);
 
 	Delete.parse(message, client, conf);
 	PrintEmbedText.parse(message, client, conf);

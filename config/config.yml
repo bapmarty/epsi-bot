@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.10.3"
+  version: "0.11.1"
 
 commands:
   admin:
@@ -55,6 +55,15 @@ commands:
       **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
       **!memberCount** - Afficher le nombre de personnes sur le discord
       **!site** - Afficher le lien du site internet
+
+  about:
+    title: |
+      Mais qui à fait ça ? :man_shrugging:
+    description: |
+      Salut c'est moi Baptiste ancien étudiant de l'EPSI,
+      j'ai recoder le bot de l'EPSI de 0 avec *Aymerick MICHELET*
+      Si jamais tu as d'autres idées pour le bot hésite pas à les mettres dans le channel #idea
+      Ou directement me faire une PR sur le github [epsi-bot](https://github.com/baptistemrt/epsi-bot)
 
   delete:
     errors:
