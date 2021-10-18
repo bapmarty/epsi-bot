@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    restart: always
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+    volumes:
+      - ./:/bot
+      - ./package.json:/bot/package.json
+      - /bot/node_modules
+    networks:
+      - epsi-bot
+
+networks:
+  epsi-bot:

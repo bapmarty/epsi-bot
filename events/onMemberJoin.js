@@ -4,7 +4,7 @@ module.exports = class OnMemberJoinGuild {
   }
 
   addRoleToNewMember(member, conf) {
-    member.roles.add(conf.roles.newStudent);
+    member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.newStudent));
     console.log("Role added");
   }
 

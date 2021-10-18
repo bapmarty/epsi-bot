@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.10.1"
+  version: "0.12.0"
 
 commands:
   admin:
@@ -12,6 +12,8 @@ commands:
 
         **!print [school, epsi, wis]** - Affiche les différents embeds
         **!delete [*number < 100*]** - Permet de supprimer *number* dernier messages
+
+        Vous pouvez écrire les updates du discord dans le channel <#%channel> sans commande automatiquement elles seront transformé en embeds
 
     print:
       school:
@@ -54,6 +56,15 @@ commands:
       **!memberCount** - Afficher le nombre de personnes sur le discord
       **!site** - Afficher le lien du site internet
 
+  about:
+    title: |
+      Mais qui à fait ça ? :man_shrugging:
+    description: |
+      Salut c'est moi Baptiste ancien étudiant de l'EPSI,
+      j'ai recoder le bot de l'EPSI de 0 avec *Aymerick MICHELET*
+      Si jamais tu as d'autres idées pour le bot hésite pas à les mettres dans le channel #idea
+      Ou directement me faire une PR sur le github [epsi-bot](https://github.com/baptistemrt/epsi-bot)
+
   delete:
     errors:
       bigNumber: Le nombre que vous avez saisi est trop grand choisissez-en un inférieur à 100 !
@@ -85,17 +96,17 @@ embeds:
 
 roles:
   owner: Owner
-  newStudent: "896447640085090304"
-  student: "896442951482343444"
-  epsi: "897420846665183282"
-  wis: "897420903690928138"
-  epsib1: "896443287462903828"
-  epsib2: "896443260258619392"
-  epsib3: "896443164779479070"
-  epsii1: "896443133955563571"
-  epsii2: "896443062358777939"
-  wisb1: "896444768085762068"
-  wisb2: "896444661248438302"
-  wisb3: "896444620932808705"
-  wisi1: "896444408428384316"
-  wisi2: "896444159039266867"
+  newStudent: New student
+  student: Student
+  epsi: EPSI
+  wis: WIS
+  epsib1: EPSI-B1
+  epsib2: EPSI-B2
+  epsib3: EPSI-B3
+  epsii1: EPSI-I1
+  epsii2: EPSI-I2
+  wisb1: WIS-B1
+  wisb2: WIS-B2
+  wisb3: WIS-B3
+  wisi1: WIS-I1
+  wisi2: WIS-I2
