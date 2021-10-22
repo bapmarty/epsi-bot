@@ -31,7 +31,7 @@ module.exports = class Student extends MessageWrapper {
       message.member.setNickname(newName).then(() => {
         em.setDescription(conf.commands.user.change.description.replace("%mention%", message.author.id));
         message.channel.send({embeds: [em]});
-      }).catch(err => console.error('[' + '\x1b[31mERROR\x1b[0m'+ '] - ' + err.httpStatus + ' Permission denied'));
+      }).catch(err => console.error('[' + '\x1b[31mERROR\x1b[0m'+ '] - ' + err.httpStatus + ' Permission denied - You cannot change username of an administrator'));
     } else {
       em.setDescription(conf.commands.user.error.description.replace("%mention%", message.author.id));
       message.channel.send({embeds: [em]});
