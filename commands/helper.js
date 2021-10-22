@@ -4,7 +4,9 @@ const MessageWrapper = require('../common/messageWrapper');
 
 module.exports = class Helper extends MessageWrapper {
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   static match(message, prefix) {
     return message.content.startsWith(prefix + 'help') || message.content.startsWith(prefix + 'h');
