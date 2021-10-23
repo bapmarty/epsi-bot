@@ -4,7 +4,9 @@ const MessageWrapper = require('../common/messageWrapper');
 
 module.exports = class Helper extends MessageWrapper {
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   static match(message, prefix) {
     return message.content.startsWith(prefix + 'help') || message.content.startsWith(prefix + 'h');
@@ -33,11 +35,12 @@ module.exports = class Helper extends MessageWrapper {
 
   static printAdminHelperMessage(message, client, conf) {
     message.delete();
+    const channelId = client.channels.cache.find(c => c.name === conf.commands.admin.update.channel);
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setAuthor(client.user.username, client.user.avatarURL(), "https://epsiwis.fr/")
       .setThumbnail(client.user.avatarURL())
-      .setDescription(conf.commands.admin.help.description)
+      .setDescription(conf.commands.admin.help.description.replace("%channel%", channelId.id))
       .setTimestamp()
       .setFooter(conf.embeds.footer.replace("%version%", conf.global.version));
     message.channel.send({embeds: [em]});
