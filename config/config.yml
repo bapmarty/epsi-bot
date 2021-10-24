@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.12.3"
+  version: "0.12.4"
 
 commands:
   admin:
@@ -76,8 +76,8 @@ commands:
         Votre pseudo à bien été changé <@%mention%>
     error:
       description: |
-         %mention% je ne peux pas changer ton pseudo, utilise la commande:
-          \`\`!user rename [prenom.nom]\`\`
+        <@%mention%> je ne peux pas changer ton pseudo, utilise la commande il faut que tu rajoutes un nom et un prénom
+        Essaye plutôt: !user rename *prénom.nom*
 
   poll:
     footer: Sondage lancé par %mention%
@@ -100,7 +100,8 @@ roles:
   student: Student
   epsi: EPSI
   wis: WIS
-  epsib1: EPSI-B1
+  rulesAccepted: rules_checked
+  epsib1: EPSI-B1 # unified with WIS-B1
   epsib2: EPSI-B2
   epsib3: EPSI-B3
   epsii1: EPSI-I1
@@ -108,5 +109,5 @@ roles:
   wisb1: WIS-B1
   wisb2: WIS-B2
   wisb3: WIS-B3
-  wisi1: WIS-I1
-  wisi2: WIS-I2
+  wisi1: WIS-I1 # moved to E1
+  wisi2: WIS-E2 # moved to E2
