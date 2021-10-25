@@ -69,4 +69,23 @@ module.exports = class OnReactions {
     }
   }
 
+  static getRulesReaction(reaction, user, conf) {
+    const message = reaction.message;
+    const emoji = reaction.emoji;
+
+    if (message.channel.name === conf.commands.admin.print.rules.channel) {
+      message.guild.members.fetch(user.id).then(member => {
+        if (emoji.name === '✅') {
+          member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.student))
+            .then(member => member.roles.remove(member.guild.roles.cache.find(r => r.name === conf.roles.newStudent)))
+        } else if (emoji.name === "🚫") {
+          console.error("CANNOT ADD ROLE BECAUSE REFUSING");
+          // todo send private message
+        }
+      });
+
+      reaction.users.remove(user.id);
+    }
+  }
+
 }

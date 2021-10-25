@@ -3,7 +3,9 @@ const { MessageEmbed } = require("discord.js");
 const MessageWrapper = require("../common/messageWrapper");
 
 module.exports = class PrintEmbedText extends MessageWrapper {
-  constructor () { }
+  constructor () {
+    super();
+  }
 
   static match(message, prefix) {
     return message.content.startsWith(prefix + "print");
@@ -20,6 +22,8 @@ module.exports = class PrintEmbedText extends MessageWrapper {
         this.getRoleForEpsi(message, conf);
       } else if (witchSection === "wis") {
         this.getRoleForWis(message, conf);
+      } else if (witchSection === "rules") {
+        this.getRulesMessage(message, conf);
       }
     }
   }
@@ -63,6 +67,18 @@ module.exports = class PrintEmbedText extends MessageWrapper {
         .then(() => emMessage.react("3️⃣"))
         .then(() => emMessage.react("4️⃣"))
         .then(() => emMessage.react("5️⃣"))
+      );
+  }
+
+  static getRulesMessage(message, conf) {
+    const em = new MessageEmbed()
+      .setColor(0x7C147B)
+      .setTitle(conf.commands.admin.print.rules.title)
+      .setDescription(conf.commands.admin.print.rules.description);
+
+    message.channel.send({embeds: [em]})
+      .then(emMessage => emMessage.react("✅")
+        .then(() => emMessage.react("🚫"))
       );
   }
 }

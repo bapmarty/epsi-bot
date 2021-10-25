@@ -41,6 +41,11 @@ commands:
           <:four:897252278006853655> Ingénieur 1
           <:five:897252314518269993> Ingénieur 2
 
+      rules:
+        channel: 📝-réglement
+        title: REGLES DU DISCORD
+        description:
+          Voici les différentes regles du disxcord
     update:
       channel: discord-updates
       title: __**Update EPSI-bot v%version%**__
@@ -100,14 +105,12 @@ roles:
   student: Student
   epsi: EPSI
   wis: WIS
-  rulesAccepted: rules_checked
-  epsib1: EPSI-B1 # unified with WIS-B1
+  epsib1: SOCLE-NUMÉRIQUE # unified with WIS-B1
   epsib2: EPSI-B2
   epsib3: EPSI-B3
   epsii1: EPSI-I1
   epsii2: EPSI-I2
-  wisb1: WIS-B1
   wisb2: WIS-B2
   wisb3: WIS-B3
-  wisi1: WIS-I1 # moved to E1
+  wisi1: WIS-E1 # moved to E1
   wisi2: WIS-E2 # moved to E2

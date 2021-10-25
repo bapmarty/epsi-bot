@@ -76,6 +76,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 		OnReactions.getWelcomeReaction(reaction, user, conf);
 		OnReactions.getEpsiSectionReaction(reaction, user, conf);
 		OnReactions.getWisSectionReaction(reaction, user, conf);
+		OnReactions.getRulesReaction(reaction, user, conf);
 	}
 });
 
