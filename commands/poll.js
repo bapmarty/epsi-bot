@@ -8,8 +8,8 @@ module.exports = class Poll extends MessageWrapper {
 
   static action(message, client, conf) {
     const temp = message.content;
-    const question = temp.split("\n", 2)[0].substr(temp.indexOf(" ") + 1) || null;
-    const description = temp.split("\n")[1] || null;
+    const question = temp.split("\n")[0].substr(temp.indexOf(" ") + 1) || null;
+    const description = temp.substr(temp.indexOf("\n") + 1) || null;
 
     message.delete();
     if (question != null) {
