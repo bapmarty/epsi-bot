@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.12.3"
+  version: "0.15.0"
 
 commands:
   admin:
@@ -10,37 +10,31 @@ commands:
       description: |
         __**[ADMIN] Voici les commands admins**__
 
-        **!print [school, epsi, wis]** - Affiche les différents embeds
+        **!print [*rules, roles*]** - Affiche les différents embeds
         **!delete [*number < 100*]** - Permet de supprimer *number* dernier messages
 
         Vous pouvez écrire les updates du discord dans le channel <#%channel%> sans commande automatiquement elles seront transformé en embeds
 
     print:
-      school:
-        channel: bienvenue
-        title: Choisis ton école
-        description: |
-          <:one:897250640135348254> EPSI
-          <:two:897252007025459210> WIS
-      epsi:
-        channel: roles-epsi
+      roles:
+        channel: choisir-tes-rôles
         title: Choisis ta classe
         description: |
-          <:one:897250640135348254> Bachelor 1
-          <:two:897252007025459210> Bachelor 2
-          <:three:897252093658816554> Bachelor 3
-          <:four:897252278006853655> Ingénieur 1
-          <:five:897252314518269993> Ingénieur 2
-      wis:
-        channel: roles-wis
-        title: Choisis ta classe
-        description: |
-          <:one:897250640135348254> Bachelor 1
-          <:two:897252007025459210> Bachelor 2
-          <:three:897252093658816554> Bachelor 3
-          <:four:897252278006853655> Ingénieur 1
-          <:five:897252314518269993> Ingénieur 2
+          <:one:897250640135348254> - EPSI/WIS socle numérique
+          <:two:897252007025459210> - EPSI Bachelor 2
+          <:three:897252093658816554> - EPSI Bachelor 3
+          <:four:897252278006853655> - EPSI Ingénieur 1
+          <:five:897252314518269993> - EPSI Ingénieur 2
+          :six: - WIS Bachelor 2
+          :seven: - WIS Bachelor 3
+          :eight: - WIS Expert 1
+          :nine: - WIS Expert 2
 
+      rules:
+        channel: 📝-réglement
+        title: REGLES DU DISCORD
+        description:
+          Voici les différentes regles du disxcord
     update:
       channel: discord-updates
       title: __**Update EPSI-bot v%version%**__
@@ -76,8 +70,8 @@ commands:
         Votre pseudo à bien été changé <@%mention%>
     error:
       description: |
-         %mention% je ne peux pas changer ton pseudo, utilise la commande:
-          \`\`!user rename [prenom.nom]\`\`
+        <@%mention%> je ne peux pas changer ton pseudo, utilise la commande il faut que tu rajoutes un nom et un prénom
+        Essaye plutôt: !user rename *prénom.nom*
 
   poll:
     footer: Sondage lancé par %mention%
@@ -94,19 +88,24 @@ commands:
 embeds:
   footer: Made with ♥ by bapmarty • %version%
 
+listeners:
+  welcome:
+    channel: ✏-général
+    message: |
+      :tada: Bienvenue à <@%mention%>, bon chance !
+
 roles:
   owner: Owner
   newStudent: New student
   student: Student
   epsi: EPSI
   wis: WIS
-  epsib1: EPSI-B1
+  socle: SOCLE-NUMÉRIQUE # unified with WIS-B1
   epsib2: EPSI-B2
   epsib3: EPSI-B3
   epsii1: EPSI-I1
   epsii2: EPSI-I2
-  wisb1: WIS-B1
   wisb2: WIS-B2
   wisb3: WIS-B3
-  wisi1: WIS-I1
-  wisi2: WIS-I2
+  wise1: WIS-E1
+  wise2: WIS-E2
