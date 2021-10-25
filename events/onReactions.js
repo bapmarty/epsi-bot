@@ -2,36 +2,31 @@ module.exports = class OnReactions {
 
   constructor() { }
 
-  static getWelcomeReaction(reaction, user, conf) {
+  static getRolesReaction(reaction, user, conf) {
     const message = reaction.message;
     const emoji = reaction.emoji;
 
-    if (message.channel.name === conf.commands.admin.print.school.channel) {
-      message.guild.members.fetch(user.id).then(member => {
-        member.roles.add(emoji.name === "1️⃣" ? member.guild.roles.cache.find(r => r.name === conf.roles.epsi) : member.guild.roles.cache.find(r => r.name === conf.roles.wis));
-      });
-
-      reaction.users.remove(user.id);
-    }
-  }
-
-  static getEpsiSectionReaction(reaction, user, conf) {
-    const message = reaction.message;
-    const emoji = reaction.emoji;
-
-    if (message.channel.name === conf.commands.admin.print.epsi.channel) {
+    if (message.channel.name === conf.commands.admin.print.roles.channel) {
       message.guild.members.fetch(user.id).then(member => {
         switch(emoji.name) {
-          case "1️⃣":
-            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.epsib1));
-          case "2️⃣":
+          case "1️⃣": // socle num
+            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.socle));
+          case "2️⃣": // epsi b2
             return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.epsib2));
-          case "3️⃣":
+          case "3️⃣": // epsi b3
             return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.epsib3));
-          case "4️⃣":
+          case "4️⃣": // epsi i1
             return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.epsii1));
-          case "5️⃣":
+          case "5️⃣": // epsi i2
             return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.epsii2));
+          case "6️⃣": // wis b2
+            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.wisb2));
+          case "7️⃣": // wis b3
+            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.wisb3));
+          case "8️⃣": // wis e1
+            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.wise1));
+          case "9️⃣": // wis e2
+            return member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.wise2));
         }
       })
       .then(member => member.roles.add(member.guild.roles.cache.find(r => r.name === conf.roles.student)))

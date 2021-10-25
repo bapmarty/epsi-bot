@@ -16,57 +16,30 @@ module.exports = class PrintEmbedText extends MessageWrapper {
 
     message.delete();
     if (message.member.roles.cache.some(r => r.name === conf.roles.owner)) {
-      if (witchSection === "school") {
-        this.getRoleForSchool(message, conf);
-      } else if (witchSection === "epsi") {
-        this.getRoleForEpsi(message, conf);
-      } else if (witchSection === "wis") {
-        this.getRoleForWis(message, conf);
+      if (witchSection === "roles") {
+        this.getRoles(message, conf);
       } else if (witchSection === "rules") {
         this.getRulesMessage(message, conf);
       }
     }
   }
 
-  static getRoleForSchool(message, conf) {
-    const em = new MessageEmbed()
-    .setColor(0x7C147B)
-    .setTitle(conf.commands.admin.print.school.title)
-    .setDescription(conf.commands.admin.print.school.description);
-
-  message.channel.send({embeds: [em]})
-    .then(emMessage => emMessage.react("1️⃣")
-      .then(() => emMessage.react("2️⃣"))
-    );
-  }
-
-  static getRoleForEpsi(message, conf) {
+  static getRoles(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
-      .setTitle(conf.commands.admin.print.epsi.title)
-      .setDescription(conf.commands.admin.print.epsi.description);
+      .setTitle(conf.commands.admin.print.roles.title)
+      .setDescription(conf.commands.admin.print.roles.description);
 
     message.channel.send({embeds: [em]})
-      .then(emMessage => emMessage.react("1️⃣")
-        .then(() => emMessage.react("2️⃣"))
-        .then(() => emMessage.react("3️⃣"))
-        .then(() => emMessage.react("4️⃣"))
-        .then(() => emMessage.react("5️⃣"))
-      );
-  }
-
-  static getRoleForWis(message, conf) {
-    const em = new MessageEmbed()
-      .setColor(0x7C147B)
-      .setTitle(conf.commands.admin.print.wis.title)
-      .setDescription(conf.commands.admin.print.wis.description);
-
-    message.channel.send({embeds: [em]})
-      .then(emMessage => emMessage.react("1️⃣")
-        .then(() => emMessage.react("2️⃣"))
-        .then(() => emMessage.react("3️⃣"))
-        .then(() => emMessage.react("4️⃣"))
-        .then(() => emMessage.react("5️⃣"))
+      .then(emMessage => emMessage.react("1️⃣") // socle
+        .then(() => emMessage.react("2️⃣")) // epsi b2
+        .then(() => emMessage.react("3️⃣")) // epsi b3
+        .then(() => emMessage.react("4️⃣")) // epsi i1
+        .then(() => emMessage.react("5️⃣")) // epsi i2
+        .then(() => emMessage.react("6️⃣")) // wis b2
+        .then(() => emMessage.react("7️⃣")) // wis b3
+        .then(() => emMessage.react("8️⃣")) // wis e1
+        .then(() => emMessage.react("9️⃣")) // wis e2
       );
   }
 
