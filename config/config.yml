@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.12.4"
+  version: "0.14.0"
 
 commands:
   admin:
@@ -98,6 +98,12 @@ commands:
 
 embeds:
   footer: Made with ♥ by bapmarty • %version%
+
+listeners:
+  welcome:
+    channel: ✏-général
+    message: |
+      :tada: Bienvenue à <@%mention%>, bon chance !
 
 roles:
   owner: Owner
