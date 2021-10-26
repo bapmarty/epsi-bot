@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 const MessageWrapper = require('../common/messageWrapper');
+const Logs = require("../channels/Logs");
 
 module.exports = class Helper extends MessageWrapper {
 
@@ -23,6 +24,7 @@ module.exports = class Helper extends MessageWrapper {
 
   static printHelperMessage(message, client, conf) {
     message.delete();
+    new Logs(message, client, conf.commands.help.log, 0x008000, conf.listeners.logs.channel);
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setAuthor(client.user.username, client.user.avatarURL(), "https://epsiwis.fr/")
