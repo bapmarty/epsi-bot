@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.15.0"
+  version: "0.16.0"
 
 commands:
   admin:
@@ -49,6 +49,7 @@ commands:
       **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
       **!memberCount** - Afficher le nombre de personnes sur le discord
       **!site** - Afficher le lien du site internet
+    log: User <@%mention%> use command **!help**
 
   about:
     title: |
@@ -89,6 +90,8 @@ embeds:
   footer: Made with ♥ by bapmarty • %version%
 
 listeners:
+  logs:
+    channel: logs
   welcome:
     channel: ✏-général
     message: |
