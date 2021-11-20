@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.16.1"
+  version: "0.17.0"
 
 commands:
   admin:
@@ -49,7 +49,6 @@ commands:
       **!poll [*question*] (shift+entrer) [*description* (optionnel)]** - Faire des polls
       **!memberCount** - Afficher le nombre de personnes sur le discord
       **!site** - Afficher le lien du site internet
-    log: User <@%mention%> use command **!help**
 
   about:
     title: |
@@ -97,6 +96,7 @@ listeners:
     message: |
       :tada: Bienvenue à <@%mention%>, bon chance !
 
+
 roles:
   owner: Owner
   newStudent: New student
@@ -112,3 +112,13 @@ roles:
   wisb3: WIS-B3
   wise1: WIS-E1
   wise2: WIS-E2
+
+logs:
+  banMessage: |
+    <:no_entry:911629454999171072> <@%mention%> vient d'être banni !
+  unbanMessage: |
+    <:white_check_mark:911629530316296242> <@%mention%> vient d'être débanni !
+  kickedMessage: |
+    <:door:911629466768388136> <@%mention%> vient de quitter le discord !
+  joinMessage: |
+    <:tada:911629487848955925> <@%mention%> vient de nous rejoindre !

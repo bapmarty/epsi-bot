@@ -1,14 +1,16 @@
-const Logs = require("../channels/Logs");
+const Logs = require("./logs");
 module.exports = class OnMemberJoinGuild {
   constructor(member, conf) {
     this.member = member;
     this.conf = conf;
     this.addRoleToNewMember();
     this.sendGeneralMessage();
+
   }
 
   addRoleToNewMember() {
     this.member.roles.add(this.member.guild.roles.cache.find(r => r.name === this.conf.roles.newStudent));
+    Logs.infoLog(this.member, this.conf.logs.joinMessage, this.conf.listeners.logs.channel);
     console.log("[" + "\x1b[34mINFO\x1b[0m" + "] - 200 - Role added to " + this.member.user.username);
   }
 

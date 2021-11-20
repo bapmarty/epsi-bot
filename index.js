@@ -2,8 +2,8 @@ const { Client } = require("discord.js");
 require('dotenv').config();
 
 const ConfigYaml = require('./config/config');
-const OnMemberJoinGuild = require("./events/onMemberJoin");
-const OnReactions = require("./events/onReactions");
+const OnMemberJoinGuild = require("./listeners/onMemberJoin");
+const OnReactions = require("./listeners/onMessageReact");
 const Helper = require('./commands/helper');
 const Student = require('./commands/student');
 const Delete = require("./admin/delete");
@@ -13,6 +13,7 @@ const MemberCount = require("./commands/memberCount");
 const Site = require("./commands/site");
 const Update = require("./listeners/update");
 const About = require("./commands/about");
+const Logs = require("./listeners/logs");
 
 const conf = new ConfigYaml().conf;
 
@@ -20,11 +21,14 @@ const intents = [
 	"GUILDS",
 	"GUILD_MESSAGES",
 	"GUILD_MEMBERS",
-	"GUILD_MESSAGE_REACTIONS"
+	"GUILD_MESSAGE_REACTIONS",
+	"GUILD_BANS"
 ];
 const client = new Client({intents: intents, ws:{intents: intents}});
 
 client.on("ready", () => {
+	Logs.primaryLog(client, conf.global.onLogin, conf.listeners.logs.channel);
+	// client.channels.cache.find(c => c.name === conf.listeners.logs.channel).send(conf.global.onLogin);
 	console.log(conf.global.onLogin);
 });
 
@@ -69,5 +73,8 @@ client.on("messageReactionAdd", (reaction, user) => {
 		OnReactions.getRulesReaction(reaction, user, conf);
 	}
 });
+
+new Logs(client, conf);
+
 
 client.login(process.env.DISCORD_TOKEN);
