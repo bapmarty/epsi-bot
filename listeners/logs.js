@@ -1,6 +1,6 @@
 const {MessageEmbed} = require("discord.js");
 module.exports = class Logs {
-  constructor(message, client, logMessage, color, channel) {
+  constructor(member = null, message = null, client = null, logMessage, color, channel) {
     this.message = message;
     this.client = client;
     this.logMessage = logMessage;
@@ -15,4 +15,3 @@ module.exports = class Logs {
     this.channel.send({embeds: [em]});
   }
 }
-

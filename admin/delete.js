@@ -5,9 +5,6 @@ const MessageWrapper = require("../common/messageWrapper");
 require('dotenv').config();
 
 module.exports = class Delete extends MessageWrapper {
-
-  constructor() { }
-
   static match(message, prefix) {
     return message.content.startsWith(prefix + "delete" || prefix + "d");
   }
@@ -26,9 +23,9 @@ module.exports = class Delete extends MessageWrapper {
       message.delete();
       const clear = async () => {
         const messages = await message.channel.messages.fetch({ limit: number });
-        message.channel.bulkDelete(messages);
+        await message.channel.bulkDelete(messages);
       }
-      clear();
+      clear().catch(err => console.error(err.status));
     } else {
       message.delete();
       const em = new MessageEmbed()

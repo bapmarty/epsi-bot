@@ -1,3 +1,4 @@
+const Logs = require("../channels/Logs");
 module.exports = class OnMemberJoinGuild {
   constructor(member, conf) {
     this.member = member;
@@ -13,7 +14,6 @@ module.exports = class OnMemberJoinGuild {
 
   sendGeneralMessage() {
     const channel = this.member.guild.channels.cache.find(c => c.name === this.conf.listeners.welcome.channel);
-
     channel.send(this.conf.listeners.welcome.message.replace("%mention%", this.member.id));
   }
 }
