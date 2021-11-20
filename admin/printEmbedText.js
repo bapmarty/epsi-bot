@@ -8,7 +8,7 @@ module.exports = class PrintEmbedText extends MessageWrapper {
   }
 
   static match(message, prefix) {
-    return message.content.startsWith(prefix + "print");
+    return message.content.startsWith(prefix + "display");
   }
 
   static action(message, client, conf) {
@@ -17,14 +17,14 @@ module.exports = class PrintEmbedText extends MessageWrapper {
     message.delete();
     if (message.member.roles.cache.some(r => r.name === conf.roles.owner)) {
       if (witchSection === "roles") {
-        this.getRoles(message, conf);
+        this.displayRolesSelectorMessage(message, conf);
       } else if (witchSection === "rules") {
-        this.getRulesMessage(message, conf);
+        this.displayRulesMessage(message, conf);
       }
     }
   }
 
-  static getRoles(message, conf) {
+  static displayRolesSelectorMessage(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setTitle(conf.commands.admin.print.roles.title)
@@ -43,7 +43,7 @@ module.exports = class PrintEmbedText extends MessageWrapper {
       );
   }
 
-  static getRulesMessage(message, conf) {
+  static displayRulesMessage(message, conf) {
     const em = new MessageEmbed()
       .setColor(0x7C147B)
       .setTitle(conf.commands.admin.print.rules.title)

@@ -2,7 +2,7 @@
 global:
   prefix: "!"
   onLogin: EPSI-WIS bot has been connected to the discord !
-  version: "0.17.0"
+  version: "0.17.1"
 
 commands:
   admin:
